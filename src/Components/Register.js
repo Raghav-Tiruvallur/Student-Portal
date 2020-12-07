@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import Swal from 'sweetalert2';
 import {Link,useHistory} from 'react-router-dom';
 const axios=require('axios');
 function Register()
@@ -16,11 +17,21 @@ function Register()
         axios.post("http://localhost:5000/register",d)
         .then((resp)=>{
              if(resp){
-                alert("Succesful Register");
+                Swal.fire({
+                    position:"top-right",
+                    icon:'success',
+                    title:'Successfully Registered'
+                  })
                 history.push('/');
             }              
             else 
-                alert("Something went wrong");
+            {
+                Swal.fire({
+                    position:"top-right",
+                    icon:'error',
+                    title:'Something went wrong'
+                  })
+            }
         })
         .catch((err)=>console.log(err));
     }
