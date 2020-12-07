@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {Link,useHistory} from 'react-router-dom';
+import Swal from 'sweetalert2';
 import axios from 'axios'
 import '../Design.css'
 function Login()
@@ -17,9 +18,14 @@ function Login()
         axios.post("http://localhost:5000",d)
         .then((resp)=>{
           if(resp.data=="1")
-             history.push('/event');
-          else if(resp.data=="0")
-              alert('Unsuccesful Login');
+             history.push('/event'); 
+          else if(resp.data=="0"){
+           Swal.fire({
+             position:"top-right",
+             icon:'error',
+             title:'Check your credentials'
+           })
+          }
         })
         .catch((err)=>console.log(err));
     }
