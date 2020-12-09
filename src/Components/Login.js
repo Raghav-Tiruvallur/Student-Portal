@@ -17,8 +17,14 @@ function Login()
         }
         axios.post("http://localhost:5000",d)
         .then((resp)=>{
-          if(resp.data=="1")
+          if(resp.data=="1"){
+            Swal.fire({
+              position:"top-right",
+              icon:'success',
+              title:'Welcome!!!!'
+            })
              history.push('/event'); 
+          }
           else if(resp.data=="0"){
            Swal.fire({
              position:"top-right",
