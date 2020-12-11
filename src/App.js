@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import React from 'react';
+import {Switch,Route,Redirect} from 'react-router-dom';
 
 import Login from './Components/Login';
-import Register from './Components/Register';
 import Event from './Components/Event';
 import QQ from './Components/QQClub';
 import MusicClub from './Components/MusicClub';
@@ -16,33 +14,51 @@ import EventRegister from './Components/EventRegister';
 import AdminPage from './Components/AdminPage';
 import CricketSport from './Components/Cricket';
 import Basketball from './Components/Basketball';
+import Football from './Components/Football';
 import RockOn from './Components/RockOn';
 import Karaoke from './Components/Karaoke';
 import Concert from './Components/Concert';
-
-function App() {
-  return (
-    <Router>
-    <Switch>
-      <Route exact path='/' component={Login}></Route>
-      <Route exact path='/register' component={Register}></Route>
-      <Route exact path='/event'  component={Event}></Route>
-      <Route exact path='/QQClub'  component={QQ}></Route>
-      <Route exact path='/MusicClub'  component={MusicClub}></Route>
-      <Route exact path='/SportsClub'  component={SportsClub}></Route>
-      <Route exact path='/QQClub/HollywoodQuiz'  component={Hollywood}></Route>
-      <Route exact path='/QQClub/GKQuiz'  component={GK}></Route>
-      <Route exact path='/QQClub/CricketQuiz'  component={Cricket}></Route>
-      <Route exact path='/event/EventRegister'  component={EventRegister}></Route>
-      <Route exact path='/AdminPage'  component={AdminPage}></Route>
-      <Route exact path='/SportsClub/Cricket'  component={CricketSport}></Route>
-      <Route exact path='/SportsClub/Basketball'  component={Basketball}></Route>
-      <Route exact path='/MusicClub/RockOn'  component={RockOn}></Route>  
-      <Route exact path='/MusicClub/Karaoke'  component={Karaoke}></Route>   
-      <Route exact path='/MusicClub/Concert'  component={Concert}></Route>     
-    </Switch>
-    </Router>
-  );
+import About from './Components/about';
+import Contact from './Components/contact';
+import Admission from './Components/admission';
+import Academics from './Components/academics';
+import Clubs from './Components/clubs'
+function isLoggedIn() {
+	var x=sessionStorage.getItem("status")
+	if(x==="1")
+		return 1;
+	else
+		return 0;
 }
+class App extends React.Component
+{
+	render(){
+		return(
+			<Switch>
+			<Route exact path='/' component={Login}/>
+			<Route exact path='/about' component={About}/>
+			<Route exact path='/contact' component={Contact}/>
+			<Route exact path='/admission' component={Admission}/>
+			<Route exact path='/academics' component={Academics}/>
+			<Route exact path='/clubs' component={Clubs}/>
+			<Route exact path='/AdminPage' component={AdminPage}/>
+			<Route exact path='/event' render={() => (isLoggedIn() ? (<Event/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/QQClub' render={() => (isLoggedIn() ? (<QQ/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/MusicClub' render={() => (isLoggedIn() ? (<MusicClub/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/SportsClub' render={() => (isLoggedIn() ? (<SportsClub/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/QQClub/HollywoodQuiz' render={() => (isLoggedIn() ? (<Hollywood/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/QQClub/GKQuiz' render={() => (isLoggedIn() ? (<GK/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/QQClub/CricketQuiz' render={() => (isLoggedIn() ? (<Cricket/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/MusicClub/RockOn' render={() => (isLoggedIn() ? (<RockOn/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/MusicClub/Karaoke' render={() => (isLoggedIn() ? (<Karaoke/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/MusicClub/Concert' render={() => (isLoggedIn() ? (<Concert/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/SportsClub/Cricket' render={() => (isLoggedIn() ? (<CricketSport/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/SportsClub/Basketball' render={() => (isLoggedIn() ? (<Basketball/>) :  (<Redirect to="/"/>))}/>
+			<Route exact path='/SportsClub/Football' render={() => (isLoggedIn() ? (<Football/>) :  (<Redirect to="/"/>))}/>   
+			</Switch>
+				)
+			}
+	}
 
-export default App;
+	export default App;
+
