@@ -1,47 +1,9 @@
+
 .heading{
-    font-size: 4rem;
-    font-weight: lighter;
-    margin-left:center;
-    margin-right: 5%;
-    margin-top:2%;
     text-align: center;
-    text-decoration-color: blue;
-    text-transform: inherit;
-    color: aqua;
+    color: #4caf50
 }
 
-.card {
-    width:280px;
-    display: block;
-    margin-left: 120px;
-    margin-top: 50px;
-    box-shadow: 10px 10px 20px 10px;
-}
-
-.card-header {
-    height: 350px;
-    width: 100%;
-    padding: 15px;
-    width:100%;
-    background-size:cover;
-    color:#fff;
-}
-
-.card-body {
-    padding: 15px;
-    background-color:#fff;
-    width:100%;
-}
-
-.button{
-    margin-left: 100px;
-}
-.body-content {
-    padding-bottom: 20px;
-    font-size: 15px;
-    font-weight:lighter;
-    line-height: 1.6;
-}
 .card1 {
     width:280px;
     display: inline-block;
@@ -52,4 +14,69 @@
     text-overflow: clip;
     text-decoration: solid;
     text-decoration-color: aqua;
+}
+.clubpage{
+	background-image:url("club2.jpg");
+	position:absolute;
+	right:0;
+	top:0;
+	left:0;
+	bottom:0;
+}
+.cardWrapper1{
+	position:absolute;
+	bottom:2vh;
+	width:30vw;
+	left:0;
+	height:40vh
+}
+.cardWrapper2{
+	position:absolute;
+	bottom:2vh;
+	width:30vw;
+	left:30vw;
+	height:40vh
+}
+.cardWrapper3{
+	position:absolute;
+	bottom:2vh;
+	width:30vw;
+	left:60vw;
+	height:40vh
+}
+.card-body {
+	text-align:center;
+    padding: 15px;
+    width:100%;
+    height:10vh;
+    color:white;
+    text-decoration:"none";
+}
+.card {
+    width:20vw;
+    display: block;
+    margin-left:10vw;
+    background-image:url("register.jpg")
+}
+.body-content {
+    padding-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+.card-header {
+    height: 30vh;
+    width: 100%;
+    padding: 15px;
+    width:100%;
+    background-size:cover;
+    color:#fff;
+}
+.content{
+	margin-left:10vw;
+	margin-right:10vw;
+	font-size:20px;
+	border-bottom: 5px solid #4caf50
+}
+a {
+text-decoration: none !important;
 }
