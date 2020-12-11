@@ -1,0 +1,26 @@
+.topHalf {
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	bottom:50vh
+}
+.bottomHalf {
+	position:absolute;
+	right:0;
+	top:50vh;
+	left:0;
+	bottom:0;
+	background-image:url(register.jpg)
+}
+.clubpage{
+	position:absolute;
+	right:0;
+	top:0;
+	left:0;
+	bottom:0;
+}
+#regboxE{
+	position: absolute;
+	left: 40vw
+}
